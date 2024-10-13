@@ -1,12 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            dockerfile 
-            { 
-                dir 'src/frontend' 
-            }
-        }
-    } 
+    agent any
     stages {
         stage('step 1') {
             steps {
