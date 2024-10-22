@@ -22,6 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: work around
+      run:
       working-directory: ./src/frontend
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
