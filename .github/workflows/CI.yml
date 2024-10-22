@@ -19,3 +19,5 @@ jobs:
     - name: Display the path
       shell: bash
       run: echo $PATH
+    - name: Clean temp directory
+      working-directory: ./src/frontend
