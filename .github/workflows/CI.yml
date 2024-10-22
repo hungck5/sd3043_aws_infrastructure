@@ -21,6 +21,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@main
+    - name: Display the path
+      shell: bash
+      run: echo $PATH
     - name: work around
       run:
       working-directory: ./src/frontend
