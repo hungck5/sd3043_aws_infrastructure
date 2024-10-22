@@ -21,6 +21,6 @@ jobs:
       run: echo $PATH
     - name: set directory
       working-directory: ./src/frontend
-      run: echo "pwd"
-    - run: npm ci
-    - run: npm run build --if-present
+      run: ls -a
+    #- run: npm ci
+    #- run: npm run build --if-present
