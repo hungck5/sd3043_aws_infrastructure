@@ -20,7 +20,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: checkout@main
+    - uses: actions/checkout@main
     - name: work around
       working-directory: ./src/frontend
     - name: Use Node.js ${{ matrix.node-version }}
