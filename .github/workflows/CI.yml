@@ -21,3 +21,5 @@ jobs:
       run: echo $PATH
     - name: Clean temp directory
       working-directory: ./src/frontend
+      shell: bash
+      run: echo $PATH
