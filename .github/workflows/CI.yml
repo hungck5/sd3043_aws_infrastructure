@@ -22,4 +22,6 @@ jobs:
     - name: Clean temp directory
       working-directory: ./src/frontend
       shell: bash
-      run: echo $PATH
+      run: echo 'pwd'
+    - run: npm ci
+    - run: npm run build --if-present
