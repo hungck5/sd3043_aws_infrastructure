@@ -19,9 +19,9 @@ jobs:
     - name: Display the path
       shell: bash
       run: echo $PATH
-    - name: Clean temp directory
+    - name: set directory
       working-directory: ./src/frontend
       shell: bash
-      run: echo 'pwd'
+      run: echo "pwd"
     - run: npm ci
     - run: npm run build --if-present
