@@ -19,7 +19,7 @@ jobs:
       shell: bash
       run: echo $PATH
     - name: set directory
-      working-directory: src/frontend
+      #working-directory: src/frontend
       run: echo set directory
       #run: |
        # npm ci
