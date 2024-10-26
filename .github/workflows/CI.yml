@@ -10,10 +10,13 @@ on:
     branches: [ "main" ]
 
 jobs:
+  call-workflow-local:
+    uses: ./.github/workflows/CI_test.yml
+    
   build:
 
     runs-on: ubuntu-latest
-    uses: hungck5/sd3043_aws_infrastructure/.github/workflows/CI_test.yml@main
+   # uses: hungck5/sd3043_aws_infrastructure/.github/workflows/CI_test.yml@main
     
     steps:
     - uses: actions/checkout@main
