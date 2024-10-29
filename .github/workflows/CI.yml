@@ -49,6 +49,8 @@ jobs:
       run: |
         mkdir -p artifacts
         cp -R build/* artifacts/
+        echo "Contents of artifacts directory after copying:"
+        ls -la artifacts/
 
     - name: List files in artifacts directory after copying
       run: ls -la artifacts/
@@ -66,9 +68,6 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-
-      - name: List files in artifacts directory for deploy job
-        run: ls -la artifacts/
 
       - name: Download build artifacts
         uses: actions/download-artifact@v3
