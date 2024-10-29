@@ -74,8 +74,11 @@ jobs:
         with:
           name: frontend-build-artifacts
 
+      - name: Show artifact directory path
+        run: echo "Artifact path* $(pwd)/src/frontend/artifacts/"
+
       - name: List downloaded files
-        run: ls -la src/frontend/artifacts/
+        run: ls -la .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
