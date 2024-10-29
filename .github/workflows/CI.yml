@@ -68,14 +68,14 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-
+      
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: frontend-build-artifacts
 
       - name: List downloaded files
-        run: ls -la ./artifacts
+        run: ls -la src/frontend/artifacts/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
