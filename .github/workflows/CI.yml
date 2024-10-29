@@ -10,22 +10,32 @@ on:
     branches: [ "main" ]
 
 jobs:
-  call-workflow-local:
-    uses: ./.github/workflows/CI_test.yml
+  #call-workflow-local:
+   # uses: ./.github/workflows/CI_test.yml
     
   build:
 
     runs-on: ubuntu-latest
-   # uses: hungck5/sd3043_aws_infrastructure/.github/workflows/CI_test.yml@main
     
     steps:
-    - uses: actions/checkout@main
-    - name: Display the path
-      shell: bash
-      run: echo $PATH
+      
+    - name: check out the respository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
     - name: set directory
-      #working-directory: src/frontend
+      working-directory: src/frontend
       run: echo set directory
       #run: |
        # npm ci
        # npm run build --if-present
+
+    - name: install dependencies
+      run: npm install
+
+    - name: build the project
+      run: npm run build
