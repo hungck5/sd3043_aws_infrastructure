@@ -42,6 +42,9 @@ jobs:
     - name: build the project
       run: npm run build
 
+    - name: List files in build directory
+      run: ls -la build/
+
     - name: Archive build artifacts
       run: |
         mkdir -p artifacts
@@ -52,6 +55,9 @@ jobs:
       with:
         name: frontend-build-artifacts
         path: artifacts/
+
+    - name: List files in artifacts
+      run: ls -la artifacts/
 
   deploy:
     runs-on: ubuntu-latest
