@@ -57,7 +57,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: frontend-build-artifacts
-        path: artifacts/**
+        path: ${{ github.workspace }}/artifacts/**
 
   deploy:
     runs-on: ubuntu-latest
@@ -66,6 +66,9 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+
+      - name: List files in artifacts directory for deploy job
+        run: ls -la artifacts/
 
       - name: Download build artifacts
         uses: actions/download-artifact@v3
