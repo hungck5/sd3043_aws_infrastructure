@@ -42,18 +42,10 @@ jobs:
     - name: build the project
       run: npm run build
 
-    - name: List files in build directory
-      run: ls -la build/
-
     - name: Archive build artifacts
       run: |
         mkdir -p artifacts
         cp -R build/* artifacts/
-        echo "Contents of artifacts directory after copying:"
-        ls -la artifacts/
-
-    - name: List files in artifacts directory after copying
-      run: ls -la artifacts/
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
@@ -68,17 +60,14 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-      
+
+      - name: Create artifacts directory
+        run: mkdir -p ./artifacts
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: frontend-build-artifacts
-
-      - name: Show artifact directory path
-        run: echo "Artifact path* $(pwd)/src/frontend/artifacts/"
-
-      - name: List downloaded files
-        run: ls -la .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
