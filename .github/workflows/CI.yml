@@ -42,9 +42,6 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     needs: build
-    defaults:
-      run:
-        working-directory: src/frontend
 
     steps:
     - name: Check out the repository
@@ -60,7 +57,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .  # Thư mục chứa Dockerfile
+        context: src/frontend  # Thư mục chứa Dockerfile
         push: true  # Tự động push lên GHCR
         tags: ghcr.io/${{ github.repository_owner }}/my-app:latest  # Tag của image
 
