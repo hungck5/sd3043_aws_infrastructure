@@ -1,0 +1,38 @@
+name: Deploy and Test Docker Container
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Tag của Docker image (vd: latest, v1.0)'
+        required: true
+        default: 'latest'
+      port:
+        description: 'Cổng để chạy container'
+        required: true
+        default: '8080'
+
+jobs:
+  deploy-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull Docker image from GHCR
+        run: |
+          docker pull ghcr.io/${{ github.repository_owner }}/my-app:${{ github.event.inputs.image_tag }}
+
+      - name: Run Docker container
+        run: |
+          docker run -d --name my-app-container -p ${{ github.event.inputs.port }}:80 ghcr.io/${{ github.repository_owner }}/my-app:${{ github.event.inputs.image_tag }}
+
+      - name: Test Docker container
+        run: |
+          sleep 5
+          curl -f http://localhost:${{ github.event.inputs.port }} || echo "Container failed to start"
