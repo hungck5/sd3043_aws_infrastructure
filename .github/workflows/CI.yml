@@ -61,5 +61,13 @@ jobs:
         push: true  # Tự động push lên GHCR
         tags: ghcr.io/${{ github.repository_owner }}/my-app:latest  # Tag của image
 
+    - name: Scan Docker image with Trivy
+      uses: aquasecurity/trivy-action@v0.3.0
+      with:
+        image: ghcr.io/${{ github.repository_owner }}/my-app:latest
+        severity: HIGH,CRITICAL  # Chỉ quét các lỗ hổng cao nhất
+        format: 'table'  # Định dạng đầu ra
+        exit_code: '1' 
+
     - name: Log out from GitHub Container Registry
       run: docker logout ghcr.io
