@@ -70,12 +70,6 @@ jobs:
           name: frontend-build-artifacts
           path: ./artifacts
 
-      - name: debug download artifacts
-        run: ls -la artifacts/
-
-      - name: debug current root
-        run: ls -la .
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
