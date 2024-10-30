@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sd3043_aws_infrastructure/static/css/main.51c1a700.css",
+    "main.js": "/sd3043_aws_infrastructure/static/js/main.42aa5dab.js",
+    "index.html": "/sd3043_aws_infrastructure/index.html",
+    "main.51c1a700.css.map": "/sd3043_aws_infrastructure/static/css/main.51c1a700.css.map",
+    "main.42aa5dab.js.map": "/sd3043_aws_infrastructure/static/js/main.42aa5dab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51c1a700.css",
+    "static/js/main.42aa5dab.js"
+  ]
+}
